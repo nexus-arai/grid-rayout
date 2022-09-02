@@ -1,0 +1,201 @@
+@import 'mixin';
+
+body {
+    text-align: center;
+}
+
+.header-menu {
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    padding: 10px 20px;
+    position:fixed;
+
+    .header-title {
+        //@media screen and (min-width: 480px)
+        @include sp {
+            font-size: 50px;
+        }
+        
+        // @media screen and (min-width: 768px) {
+        @include tab {
+            width: 30%;
+            font-size: 50px;
+        }
+        
+        //@media screen and (min-width: 1080px) {
+        @include pc {
+            width: 20%;
+            font-size: 50px;
+        }
+    }
+
+    .hamburger-menu {
+        
+        .header-btn {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            height: 60px;
+            width: 60px;
+            justify-content: center;
+            align-items: center;
+            z-index: 90;
+        }
+
+        .header-btn span,
+        .header-btn span:before,
+        .header-btn span:after {
+            content: '';
+            display: block;
+            height: 3px;
+            width: 25px;
+            border-radius: 3px;
+            background-color: #000;
+            position: absolute;
+        }
+
+        .header-btn span:before {
+            bottom: 8px;
+        }
+        
+        .header-btn span:after {
+            top: 8px;
+        }
+    }
+}
+
+main {
+    padding: 70px 0 0 0;
+
+    .main-img {
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 100vh;
+        background-position: center;
+    }
+
+    .pickup {
+        padding: 80px 0;
+
+        //@media screen and (min-width: 480px)
+        @include sp {
+        }
+        
+        // @media screen and (min-width: 768px) {
+        @include tab {
+        }
+        
+        //@media screen and (min-width: 1080px) {
+        @include pc {
+        }
+    }
+
+    .pickup-img {
+        width: auto;
+        height: 130px;
+
+        //@media screen and (min-width: 480px)
+        @include sp {
+        }
+        
+        // @media screen and (min-width: 768px) {
+        @include tab {
+        }
+        
+        //@media screen and (min-width: 1080px) {
+        @include pc {
+        }
+    }
+    
+    .title {
+        //@media screen and (min-width: 480px)
+        @include sp {
+            font-weight: bold;
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+        
+        // @media screen and (min-width: 768px) {
+        @include tab {
+        }
+        
+        //@media screen and (min-width: 1080px) {
+        @include pc {
+        }
+    }
+    
+    
+    .feature {
+        //@media screen and (min-width: 480px)
+        @include sp {
+            
+        }
+        
+        // @media screen and (min-width: 768px) {
+        @include tab {
+        }
+        
+        //@media screen and (min-width: 1080px) {
+        @include pc {
+        }
+    }
+        
+    .feature-contents {
+        padding: 10px;
+    }
+            
+    .grid {
+        padding: 20px;
+        margin: 30px 5px;        transition: all 0.3s ease;
+        box-shadow: 0 0 8px 4px #ccc;
+
+        //@media screen and (min-width: 480px)
+        @include sp {
+            
+        }
+        
+        // @media screen and (min-width: 768px) {
+        @include tab {
+        }
+        
+        //@media screen and (min-width: 1080px) {
+        @include pc {
+        }
+
+        .grid-img {
+            text-align: center;
+            width: auto;
+            height: 150px;
+        }
+
+        .category {
+            text-align: left;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .text {
+            text-align: left;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        
+        .date {
+            text-align: right;
+            font-size: 10px;
+        }
+    }
+}
+
+
+
+// .news-img
+// .text
+// .date
+// .contact
+// .title
+// .footer-text
+// .logo
