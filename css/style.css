@@ -1,33 +1,38 @@
 body {
+  box-sizing: border-box;
   text-align: center;
 }
 
-.header-menu {
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+header .header-menu {
   box-sizing: border-box;
   width: 100%;
   background-color: #fff;
   display: flex;
   padding: 10px 20px;
-  position: fixed;
 }
 @media screen and (max-width: 480px) {
-  .header-menu .header-title {
+  header .header-menu .header-title {
     font-size: 50px;
   }
 }
 @media screen and (min-width: 768px) {
-  .header-menu .header-title {
+  header .header-menu .header-title {
     width: 30%;
     font-size: 50px;
   }
 }
 @media screen and (min-width: 1080px) {
-  .header-menu .header-title {
+  header .header-menu .header-title {
     width: 20%;
     font-size: 50px;
   }
 }
-.header-menu .hamburger-menu .header-btn {
+header .header-menu .hamburger-menu .header-btn {
   position: fixed;
   top: 10px;
   right: 10px;
@@ -38,9 +43,9 @@ body {
   align-items: center;
   z-index: 90;
 }
-.header-menu .hamburger-menu .header-btn span,
-.header-menu .hamburger-menu .header-btn span:before,
-.header-menu .hamburger-menu .header-btn span:after {
+header .header-menu .hamburger-menu .header-btn span,
+header .header-menu .hamburger-menu .header-btn span:before,
+header .header-menu .hamburger-menu .header-btn span:after {
   content: "";
   display: block;
   height: 3px;
@@ -49,21 +54,28 @@ body {
   background-color: #000;
   position: absolute;
 }
-.header-menu .hamburger-menu .header-btn span:before {
+header .header-menu .hamburger-menu .header-btn span:before {
   bottom: 8px;
 }
-.header-menu .hamburger-menu .header-btn span:after {
+header .header-menu .hamburger-menu .header-btn span:after {
   top: 8px;
 }
 
-main {
-  padding: 70px 0 0 0;
-}
 main .main-img {
   box-sizing: border-box;
   width: 100%;
-  min-height: 100vh;
-  background-position: center;
+}
+@media screen and (max-width: 480px) {
+  main .main-img {
+    height: 100vh;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+@media screen and (min-width: 768px) {
+  main .main-img {
+    height: 400px;
+  }
 }
 main .pickup {
   padding: 80px 0;
@@ -79,31 +91,97 @@ main .pickup-img {
     margin-bottom: 25px;
   }
 }
-main .feature-contents {
+@media screen and (min-width: 768px) {
+  main .title {
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 25px;
+  }
+}
+main .feature .feature-contents {
   padding: 10px;
+  margin: 10px;
 }
-main .grid {
-  padding: 20px;
-  margin: 30px 5px;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 8px 4px #ccc;
+@media screen and (min-width: 768px) {
+  main .feature .feature-contents {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: space-around;
+  }
 }
-main .grid .grid-img {
+@media screen and (max-width: 480px) {
+  main .feature .grid {
+    padding: 20px;
+    margin: 30px 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px 4px #ccc;
+  }
+}
+@media screen and (min-width: 768px) {
+  main .feature .grid {
+    display: block;
+    box-sizing: border-box;
+    width: 50%;
+    padding: 20px;
+    margin: 30px 0px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px 4px #ccc;
+  }
+}
+main .feature .grid .grid-img {
   text-align: center;
   width: auto;
   height: 150px;
 }
-main .grid .category {
+main .feature .grid .category {
   text-align: left;
   font-size: 15px;
   margin-bottom: 20px;
 }
-main .grid .text {
+main .feature .grid .text {
   text-align: left;
   font-weight: bold;
   margin-bottom: 30px;
 }
-main .grid .date {
+main .feature .grid .date {
   text-align: right;
   font-size: 10px;
+}
+main .contact {
+  background-color: #000;
+  color: #fff;
+  padding: 80px 10px;
+}
+main .contact .contact-form {
+  text-align: left;
+  margin: 30px 0;
+}
+main .contact .text {
+  box-sizing: border-box;
+  width: 100%;
+  height: 45px;
+  margin: 5px 0 20px;
+}
+main .contact .textarea {
+  box-sizing: border-box;
+  width: 100%;
+  height: 70px;
+  margin: 5px 0 20px;
+}
+main .contact .btn {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  border: solid 1px #fff;
+  padding: 15px 0;
+}
+
+footer .copy-right {
+  background-color: #000;
+  color: #fff;
+  font-size: 12px;
+  padding-bottom: 15px;
 }/*# sourceMappingURL=style.css.map */
