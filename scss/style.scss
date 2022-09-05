@@ -1,8 +1,6 @@
-@import 'mixin';
-@import 'variables';
-
-$mainColor: #fff;
-
+@import './rayout';
+@import './variables';
+@import './function';
 
 body {
     box-sizing: border-box;
@@ -14,9 +12,8 @@ header {
     top: 0;
 
     .header-menu {
-        box-sizing: border-box;
-        width: 100%;
-        background-color: #fff;
+        @include fullWidth;
+        background-color: $mainColor;
         display: flex;
         padding: 10px 20px;
 
@@ -40,7 +37,6 @@ header {
         }
 
         .hamburger-menu {
-            
             .header-btn {
                 position: fixed;
                 top: 10px;
@@ -61,7 +57,7 @@ header {
                 height: 3px;
                 width: 25px;
                 border-radius: 3px;
-                background-color: #000;
+                background-color: $subColor;
                 position: absolute;
             }
 
@@ -77,10 +73,10 @@ header {
 }
 
 main {
+    text-align: center;
 
     .main-img {
-        box-sizing: border-box;
-        width: 100%;
+        @include fullWidth;
 
         //@media screen and (min-width: 480px)
         @include sp {
@@ -96,6 +92,7 @@ main {
         
         //@media screen and (min-width: 1080px) {
         @include pc {
+            height: 600px;
         }
     }
 
@@ -134,6 +131,8 @@ main {
     }
     
     .title {
+        display: block;
+
         //@media screen and (min-width: 480px)
         @include sp {
             font-weight: bold;
@@ -162,8 +161,7 @@ main {
         
         // @media screen and (min-width: 768px) {
         @include tab {
-
-
+            margin-bottom: 60px;
         }
         
         //@media screen and (min-width: 1080px) {
@@ -181,40 +179,29 @@ main {
             
             // @media screen and (min-width: 768px) {
             @include tab {
-                display: flex;
-                flex-wrap: wrap;
-                margin: 0 auto;
-                justify-content: space-around;
+                @include displayGrid;
+                grid-template-columns: 1fr 1fr;
             }
             
             //@media screen and (min-width: 1080px) {
             @include pc {
+                @include displayGrid;
+                grid-template-columns: 1fr 1fr 1fr;
             }
             
         }
                 
         .grid {
-    
+            transition: all 0.3s ease;
+            box-shadow: 0 0 8px 4px #ccc;
+
             //@media screen and (min-width: 480px)
             @include sp {
-                padding: 20px;
-                margin: 30px 5px;        
-                transition: all 0.3s ease;
-                box-shadow: 0 0 8px 4px #ccc;
+                margin: 30px 5px;
             }
             
             // @media screen and (min-width: 768px) {
             @include tab {
-                // display: grid;
-                // gap: 26px;
-                // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                display: block;
-                box-sizing: border-box;
-                width: 50%;
-                padding: 20px;
-                margin: 30px 0px;        
-                transition: all 0.3s ease;
-                box-shadow: 0 0 8px 4px #ccc;
             }
             
             //@media screen and (min-width: 1080px) {
@@ -223,8 +210,12 @@ main {
     
             .grid-img {
                 text-align: center;
-                width: auto;
-                height: 150px;
+                max-width: 100%;
+                height: auto;
+            }
+
+            .grid-contents {
+                padding: 20px;
             }
     
             .category {
@@ -247,15 +238,63 @@ main {
     }
         
     .contact {
-        background-color: #000;
-        color: #fff;
+        background-color: $subColor;
+        color: $mainColor;
         padding: 80px 10px;
-        // display: flex;
-        // justify-content: space-around;
+
+        .contact-title {
+            display: block;
+        }
+
+        .contact-contents {
+            //@media screen and (min-width: 480px)
+            @include sp {
+            }
+            
+            // @media screen and (min-width: 768px) {
+            @include tab {
+                display: flex;
+                justify-content: space-between;
+            }
+            
+            //@media screen and (min-width: 1080px) {
+            @include pc {
+            }
+        }
+
+        .contact-text {
+            //@media screen and (min-width: 480px)
+            @include sp {
+            }
+            
+            // @media screen and (min-width: 768px) {
+            @include tab {
+                width: 45%;
+                text-align: left;
+            }
+            
+            //@media screen and (min-width: 1080px) {
+            @include pc {
+            }
+        }
 
         .contact-form {
             text-align: left;
-            margin: 30px 0;
+            
+            //@media screen and (min-width: 480px)
+            @include sp {
+                margin: 30px 0;
+            }
+            
+            // @media screen and (min-width: 768px) {
+            @include tab {
+                width: 45%;
+                margin: 0;
+            }
+            
+            //@media screen and (min-width: 1080px) {
+            @include pc {
+            }
         }
         
         .text {
@@ -275,19 +314,21 @@ main {
         .btn {
             box-sizing: border-box;
             width: 100%;
-            background-color: #000;
-            color: #fff;
+            background-color: $subColor;
+            color: $mainColor;
             text-align: center;
-            border: solid 1px #fff;
+            border: solid 1px $mainColor;
             padding: 15px 0;
         }
     }
 }
 
 footer {
+    text-align: center;
+
     .copy-right {
-        background-color: #000;
-        color: #fff;
+        background-color: $subColor;
+        color: $mainColor;
         font-size: 12px;
         padding-bottom: 15px;
     }

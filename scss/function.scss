@@ -1,0 +1,9 @@
+@mixin displayGrid {
+    display: grid;
+    gap: 2rem;
+}
+
+@mixin fullWidth {
+    box-sizing: border-box;
+    width: 100%;
+}
