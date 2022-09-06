@@ -36,38 +36,116 @@ header {
             }
         }
 
-        .hamburger-menu {
-            .header-btn {
-                position: fixed;
-                top: 10px;
-                right: 10px;
-                display: flex;
-                height: 60px;
-                width: 60px;
-                justify-content: center;
-                align-items: center;
-                z-index: 90;
-            }
+        .menu-btn {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            height: 60px;
+            width: 60px;
+            justify-content: center;
+            align-items: center;
+            z-index: 90;
+            background-color: #fff;
+        }
 
-            .header-btn span,
-            .header-btn span:before,
-            .header-btn span:after {
-                content: '';
-                display: block;
-                height: 3px;
-                width: 25px;
-                border-radius: 3px;
-                background-color: $subColor;
-                position: absolute;
-            }
+        .menu-btn span,
+        .menu-btn span:before,
+        .menu-btn span:after {
+            content: "";
+            display: block;
+            height: 3px;
+            width: 25px;
+            border-radius: 3px;
+            background-color: #000000;
+            position: absolute;
+        }
 
-            .header-btn span:before {
-                bottom: 8px;
-            }
-            
-            .header-btn span:after {
-                top: 8px;
-            }
+        .menu-btn span:before {
+            bottom: 8px;
+        }
+
+        .menu-btn span:after {
+            top: 8px;
+        }
+                
+        #menu-btn-check:checked ~ .menu-btn span {
+            background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+        }
+
+        #menu-btn-check:checked ~ .menu-btn span::before {
+            bottom: 0;
+            transform: rotate(45deg);
+        }
+
+        #menu-btn-check:checked ~ .menu-btn span::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
+
+        #menu-btn-check:checked ~ .menu-btn span {
+            background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+        }
+
+        #menu-btn-check:checked ~ .menu-btn span::before {
+            bottom: 0;
+            transform: rotate(45deg);
+        }
+
+        #menu-btn-check:checked ~ .menu-btn span::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
+
+        #menu-btn-check {
+            display: none;
+        }
+
+        .menu-content {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 100%;/*leftの値を変更してメニューを画面外へ*/
+            z-index: 80;
+            background-color: $mainColor;
+            transition: all 0.5s;/*アニメーション設定*/
+        }
+
+        .menu-content ul {
+            padding: 70px 10px 0;
+        }
+
+        .menu-content ul li {
+            border-bottom: solid 1px $subColor;
+            list-style: none;
+        }
+
+        .menu-content ul li a {
+            display: block;
+            width: 100%;
+            font-size: 15px;
+            box-sizing: border-box;
+            color: $subColor;
+            text-decoration: none;
+            padding: 9px 15px 10px 0;
+            position: relative;
+        }
+
+        .menu-content ul li a::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-top: solid 2px $subColor;
+            border-right: solid 2px $subColor;
+            transform: rotate(45deg);
+            position: absolute;
+            right: 11px;
+            top: 16px;
+        }
+
+        #menu-btn-check:checked ~ .menu-content {
+            left: 0;/*メニューを画面内へ*/
         }
     }
 }
@@ -86,30 +164,72 @@ main {
         
         // @media screen and (min-width: 768px) {
         @include tab {
-            // ./assets/kris-gerhard-0BKZfcamvGg-unsplash.jpg
-            height: 400px;
+            height: 100vh;
+            object-fit: cover;
         }
         
         //@media screen and (min-width: 1080px) {
         @include pc {
-            height: 600px;
+            height: 100vh;
+            object-fit: cover;
         }
     }
 
     .pickup {
-        padding: 80px 0;
+        width: 100%;
+        margin: 80px 0;
 
-        //@media screen and (min-width: 480px)
-        @include sp {
-        }
+        /* 全体設定 */
+        .css-carousel-slider2 {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
         
-        // @media screen and (min-width: 768px) {
-        @include tab {
-            // ./assets/kris-gerhard-0BKZfcamvGg-unsplash.jpg
+            img {
+                width: 30%;
+                height: auto;
+                vertical-align: top;
+            }
         }
-        
-        //@media screen and (min-width: 1080px) {
-        @include pc {
+
+        /* スライド設定 */
+        .css-carousel-slider2 .slide-wrap {
+            width: 200%;
+            position: absolute;
+            display: flex;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            animation: css-carousel-slider2 10s infinite;
+            animation-delay: 2s;
+        }
+
+        .css-carousel-slider2 .slide-wrap-main {
+            width: 100%;
+            z-index: 1;
+            animation: css-carousel-slider-main2 10s infinite;
+            animation-delay: 2s;
+        }
+
+        .css-carousel-slider2 .slide {
+            width: 100%;
+        }
+
+        /* スライダーアニメーションの設定 */
+        @keyframes css-carousel-slider2 {
+            0% { transform: translateX(0); }
+
+            40% { transform: translateX(calc(1 / 2 * -100%)); }
+            50% { transform: translateX(calc(1 / 2 * -100%)); }
+
+            90% { transform: translateX(calc(2 / 2 * -100%)); }
+            100% { transform: translateX(calc(2 / 2 * -100%)); }
+        }
+
+        @keyframes css-carousel-slider-main2 {
+            0% { transform: translateX(100%); }
+            50% { transform: translateX(100%); }
+            90% { transform: translateX(0%);}
         }
     }
 
@@ -129,6 +249,55 @@ main {
         @include pc {
         }
     }
+
+    .accordion {
+        max-width: 1024px;
+        margin: 80px auto;
+        
+        .menu {
+            background-color: rgb(206, 163, 127);
+            color: $subColor;
+            font-size: 18px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+            border: solid 1px $subColor;
+        }
+
+        .menu:hover,
+        .menu:active,
+        .menu.is-active {
+            background-color: rgb(232, 83, 8);
+        }
+
+        /* .contents {
+            display: none;
+            border: 1px solid black;
+            padding: 10px;
+            line-height: normal;
+            height: auto;
+            opacity: 1;
+            text-align: center;
+        } */
+        
+        .contents {
+            text-align: center;
+            line-height: 0;
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition-duration: 0.4s;
+        }
+      
+        .contents.is-open {
+            border: 1px solid black;
+            padding: 10px;
+            line-height: normal;
+            height: auto;
+            opacity: 1;
+        }
+    }   
     
     .title {
         display: block;
@@ -154,19 +323,7 @@ main {
     
     
     .feature {
-        //@media screen and (min-width: 480px)
-        @include sp {
-            
-        }
-        
-        // @media screen and (min-width: 768px) {
-        @include tab {
-            margin-bottom: 60px;
-        }
-        
-        //@media screen and (min-width: 1080px) {
-        @include pc {
-        }
+        @include maxWidth;
 
         .feature-contents {
             padding: 10px;
@@ -241,11 +398,11 @@ main {
         background-color: $subColor;
         color: $mainColor;
         padding: 80px 10px;
-
+        
         .contact-title {
             display: block;
         }
-
+        
         .contact-contents {
             //@media screen and (min-width: 480px)
             @include sp {
@@ -256,9 +413,10 @@ main {
                 display: flex;
                 justify-content: space-between;
             }
-            
+                
             //@media screen and (min-width: 1080px) {
-            @include pc {
+                @include pc {
+                @include maxWidth;
             }
         }
 

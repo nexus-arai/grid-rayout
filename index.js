@@ -1,0 +1,137 @@
+// ハンバーガーメニュー
+// const
+
+// document
+//   .querySelector(".toggle-btn")
+//   .addEventListener("click", function () {
+//     if (document.querySelector(".header-menu").classList.contains("open") {
+//       console.log("open");
+//     }
+// });
+
+// const btn = document.getElementById("button");
+// const list = document.getElementById("list");
+
+// btn.addEventListener("click", function () {
+//   list.classList.toggle("hidden");
+// });
+
+const menu = document.querySelectorAll(".js-menu");
+
+// for (let i = 0; i < menu.length; i++) {
+//   menu[i].addEventListener("click", () => {
+//     const content = this.nextElementSibling;
+//     this.classList.toggle("is-active");
+//     content.classList.toggle("is-open");
+//   });
+// }
+
+function toggle() {
+  const content = this.nextElementSibling;
+  this.classList.toggle("is-active");
+  content.classList.toggle("is-open");
+}
+
+for (let i = 0; i < menu.length; i++) {
+  menu[i].addEventListener("click", toggle);
+}
+
+// // 質問タブを変数に入れる
+// const tabs = document.querySelectorAll(".accordion__tab");
+// // 回答コンテンツを変数に入れる
+// const contents = document.querySelectorAll(".accordion__content");
+
+// for (let i = 0; i < tabs.length; i++) {
+//   // 質問タブをクリックしたら発火
+//   tabs[i].addEventListener("click", function () {
+//     // クリックした質問タブのactiveクラスを付け替える
+//     this.classList.toggle("active");
+//     // クリックした質問タブのindex番号の回答コンテンツのactiveクラスを付け替える
+//     contents[i].classList.toggle("active");
+//   });
+// }
+
+// $(function () {
+//   /*=================================================
+//   スマホメニュー
+//   ===================================================*/
+//   // ハンバーガーメニューのクリックイベント
+//   // 解説は、「中級編：ストアサイト（インテリア）」参照
+//   $(".toggle_btn").on("click", function () {
+//     if ($("#header").hasClass("open")) {
+//       $("#header").removeClass("open");
+//     } else {
+//       $("#header").addClass("open");
+//     }
+//   });
+
+//   // #maskのエリアをクリックした時にメニューを閉じる
+//   $("#mask").on("click", function () {
+//     $("#header").removeClass("open");
+//   });
+
+//   // リンクをクリックした時にメニューを閉じる
+//   $("#navi a").on("click", function () {
+//     $("#header").removeClass("open");
+//   });
+
+//   /*=================================================
+//   スムーススクロール
+//   ===================================================*/
+//   // ページ内リンクのイベント
+//   $('a[href^="#"]').click(function () {
+//     // リンクを取得
+//     let href = $(this).attr("href");
+//     // ジャンプ先のid名をセット
+//     let target = $(href == "#" || href == "" ? "html" : href);
+//     // トップからジャンプ先の要素までの距離を取得
+//     let position = target.offset().top;
+//     // animateでスムーススクロールを行う
+//     // 600はスクロール速度で単位はミリ秒
+//     $("html, body").animate({ scrollTop: position }, 600, "swing");
+//     return false;
+//   });
+
+//   /*=================================================
+//   PICK UP スライダー
+//   ===================================================*/
+//   // カルーセル用 jQueryプラグイン「slick」の設定
+//   // マニュアル：https://kenwheeler.github.io/slick/
+//   $(".slick-area").slick({
+//     arrows: false,
+//     centerMode: true,
+//     centerPadding: "100px",
+//     slidesToShow: 3,
+//     responsive: [
+//       {
+//         breakpoint: 768,
+//         settings: {
+//           centerPadding: "50px",
+//           slidesToShow: 1,
+//         },
+//       },
+//     ],
+//   });
+
+//   /*=================================================
+//   スクロール時の画像フェード表示
+//   ===================================================*/
+//   // スクロール時のイベント
+//   $(window).scroll(function () {
+//     // fadeinクラスに対して順に処理を行う
+//     $(".fadein").each(function () {
+//       // スクロールした距離
+//       let scroll = $(window).scrollTop();
+//       // fadeinクラスの要素までの距離
+//       let target = $(this).offset().top;
+//       // 画面の高さ
+//       let windowHeight = $(window).height();
+//       // fadeinクラスの要素が画面下にきてから200px通過した
+//       // したタイミングで要素を表示
+//       if (scroll > target - windowHeight + 200) {
+//         $(this).css("opacity", "1");
+//         $(this).css("transform", "translateY(0)");
+//       }
+//     });
+//   });
+// });
